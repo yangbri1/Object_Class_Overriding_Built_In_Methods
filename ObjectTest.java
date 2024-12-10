@@ -12,6 +12,13 @@ class Person {
     public void setName(String name) {
         this.name = name;
     } 
+
+    /* UPDATE: Overriding the built-in .toString() Object class method */
+    public String toString() {
+        // now instead of returning class name & unique hashCode (default behavior) ...
+        // calling .toString() method will now look for the .toString() in class 'Person' -> return String
+        return("Hullo I'm " + this.name);
+    }
 }
 
 // class 'ObjectTest'
@@ -30,6 +37,10 @@ public class ObjectTest {
     public static void main(String[] args) {
         // instantiate a new Person obj
         Person somebody = new Person();
+
+        // calling .setName() method from 'Person' obj to set instance field w/ a custom name
+        somebody.setName("Jack the Ripper");
+
         // print out by default the name of class & that instance's hashCode
         // ex. Person@15db9742
         System.out.println(print(somebody));
